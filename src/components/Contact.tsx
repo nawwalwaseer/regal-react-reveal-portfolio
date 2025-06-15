@@ -17,9 +17,9 @@ export default function Contact() {
   }
 
   return (
-    <div id="contact" className="mx-auto">
+    <div id="contact" className="section animate-fade-in mx-auto">
       <h3 className="section-title">Contact Me</h3>
-      <form onSubmit={handleSubmit} className="card mb-8 space-y-4">
+      <form onSubmit={handleSubmit} className="card hover-glow mb-8 space-y-4 max-w-lg mx-auto p-7">
         <input
           className="w-full"
           type="text"
@@ -48,14 +48,14 @@ export default function Contact() {
           {submitted ? "Message Sent!" : "Send Message"}
         </button>
       </form>
-      <div className="text-center mb-4 text-lg text-muted-foreground">
+      <div className="text-center mb-6 text-lg text-muted-foreground">
         <div>Email: <a href="mailto:waseernawwal@gmail.com" className="text-primary hover:underline">waseernawwal@gmail.com</a></div>
         <div>WhatsApp / Phone: <a href="https://wa.me/923164900961" target="_blank" rel="noopener" className="text-primary hover:underline">+92 316 4900961</a></div>
       </div>
-      <div className="flex justify-center gap-6">
+      <div className="flex justify-center gap-8">
         {socials.map(s => (
-          <a key={s.name} href={s.url} target="_blank" rel="noopener" aria-label={s.name} className="text-primary hover:text-accent transition-colors">
-            <s.icon size={24} />
+          <a key={s.name} href={s.url} target="_blank" rel="noopener" aria-label={s.name} className="nav-link text-xl">
+            <s.icon size={28} />
           </a>
         ))}
       </div>

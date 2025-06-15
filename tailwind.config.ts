@@ -11,7 +11,7 @@ export default {
   theme: {
     fontFamily: {
       body: ['Inter', 'system-ui', 'sans-serif'],
-      heading: ['Playfair Display', 'serif'],
+      heading: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
     },
     container: {
       center: true,

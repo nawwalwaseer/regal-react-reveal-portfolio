@@ -34,16 +34,21 @@ const projectList = [
 export default function Projects() {
   const navigate = useNavigate();
   return (
-    <div id="projects">
+    <div id="projects" className="section animate-fade-in">
       <h3 className="section-title">Projects</h3>
       <div className="grid md:grid-cols-2 gap-8">
         {projectList.map(p => (
           <div
             key={p.id}
-            className="card overflow-hidden group cursor-pointer flex flex-col p-0 transition"
+            className="card hover-glow group cursor-pointer flex flex-col p-0 animate-fade-in"
             onClick={() => navigate(`/project/${p.id}`)}
           >
-            <img src={p.image} alt={p.title} className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            <img
+              src={p.image}
+              alt={p.title}
+              className="h-48 w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
             <div className="p-5 flex-1 flex flex-col">
               <div className="card-title mb-1">{p.title}</div>
               <div className="text-muted-foreground mb-2">{p.desc}</div>

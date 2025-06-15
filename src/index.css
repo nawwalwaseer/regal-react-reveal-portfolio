@@ -1,90 +1,97 @@
 
-/* 
-  Add this link to your html for Playfair Display:
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap">
-*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: #f5f8fa;
-    --foreground: #232b33;    /* main text */
+    --background: #f6f6f8;
+    --foreground: #212121;
     --card: #fff;
-    --card-foreground: #232b33;
-    --primary: #3776ab;       /* blue accent */
+    --card-foreground: #212121;
+    --primary: #4066e0;
     --primary-foreground: #fff;
-    --accent: #3776ab;
-    --muted: #f8f9fb;         /* slightly offwhite cards */
-    --muted-foreground: #586069;
-    --shadow: 0 8px 24px 0 rgba(55, 118, 171, 0.08);
-    --wheat: #f5deb3;         /* secondary accent for highlights */
+    --accent: #1053ff;
+    --muted: #f2f3f8;
+    --muted-foreground: #6A6A6A;
+    --shadow: 0 4px 32px 0 rgba(31,52,148,0.08);
+    --gold: #f5deb3;
+    --radius: 28px;
+  }
+  html, body {
+    @apply bg-background text-foreground font-body tracking-wide;
+    font-size: 16px;
+    min-height: 100vh;
   }
   .font-body { font-family: 'Inter', system-ui, sans-serif; }
-  .font-heading { font-family: 'Playfair Display', serif; font-weight:700; }
+  .font-heading { font-family: 'Poppins', Inter, system-ui, sans-serif; font-weight:700; }
 }
-
-/* Light/Dark support */
 html.dark {
-  --background: #162029;
-  --foreground: #f5f8fa;
-  --card: #1b222c;
-  --card-foreground: #f5f8fa;
-  --primary: #3776ab;
+  --background: #191a22;
+  --foreground: #fafafc;
+  --card: #232339;
+  --card-foreground: #fafafc;
+  --primary: #518af0;
   --primary-foreground: #fff;
-  --accent: #3776ab;
-  --muted: #232b33;
-  --muted-foreground: #bfc9d1;
-  --wheat: #f5deb3;
+  --accent: #4b6ee1;
+  --muted: #27273a;
+  --muted-foreground: #acb6c6;
+  --gold: #eac98f;
 }
-html.light {
-  --background: #f5f8fa;
-  --foreground: #232b33;
-  --card: #fff;
-  --card-foreground: #232b33;
-  --primary: #3776ab;
-  --primary-foreground: #fff;
-  --accent: #3776ab;
-  --muted: #f8f9fb;
-  --muted-foreground: #586069;
-  --wheat: #f5deb3;
-}
-
-body {
-  @apply bg-background text-foreground font-body tracking-wide m-0;
-  min-height: 100vh;
-  background: var(--background);
-}
-
-/* Navbar & sections */
-.section { @apply bg-card shadow-lg rounded-2xl p-8 md:p-12 mb-12 transition-all; box-shadow: var(--shadow); }
-.section-title { @apply font-heading text-4xl text-primary text-center mb-6 font-bold; letter-spacing: -.03em; }
-
-/* Card style for grids and projects */
-.card {
-  @apply bg-card rounded-xl shadow transition-all border border-transparent hover:border-accent hover:shadow-xl;
+.section { 
+  @apply max-w-5xl mx-auto bg-card rounded-[2rem] shadow-lg p-8 md:p-12 mb-14 transition-all;
   box-shadow: var(--shadow);
 }
-.card-title { @apply font-heading text-xl font-bold text-primary; }
-
-/* Buttons */
-.btn, .button {
-  @apply inline-block px-6 py-2 rounded-lg font-semibold bg-primary text-primary-foreground shadow hover:bg-primary/80 transition tracking-wide;
+.section-title { 
+  @apply font-heading text-[2.3rem] md:text-4xl text-primary text-center mb-6 font-bold tracking-tight;
+}
+.card {
+  @apply bg-card rounded-2xl shadow border border-transparent hover:border-primary/30 hover:shadow-2xl transition;
+  box-shadow: var(--shadow);
+}
+.card-title { 
+  @apply font-heading text-xl font-bold text-primary mb-2; 
+}
+.btn {
+  @apply px-7 py-2.5 rounded-[1.2em] font-heading tracking-wide font-semibold bg-primary hover:bg-accent/90 text-primary-foreground shadow-lg focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all;
 }
 .btn-outline {
-  @apply border border-primary text-primary bg-transparent hover:bg-primary hover:text-white;
+  @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white;
 }
 .btn-ghost {
-  @apply bg-transparent text-primary hover:bg-primary/10;
+  @apply bg-transparent text-primary font-bold hover:bg-accent/10;
 }
-
-/* Inputs and forms */
+/* nav */
+.nav-link {
+  @apply text-muted-foreground hover:text-primary font-medium transition-colors px-4 py-2 rounded;
+}
+.nav-link-active {
+  @apply bg-primary/10 text-primary font-bold rounded-lg;
+}
+.burger {
+  @apply flex flex-col gap-1 cursor-pointer md:hidden ml-6 p-2 rounded-lg hover:bg-primary/10;
+}
+.burger-line {
+  @apply w-7 h-1 rounded-full bg-primary transition-all;
+}
+/* Animations/Effects */
+.ease-in-view { @apply transition-opacity transition-transform duration-700; }
+.animate-fade-in { animation: fade-in 0.6s cubic-bezier(.45,.4,0,1.2) 1;}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.hover-glow {
+  transition: box-shadow .28s, transform .18s;
+  box-shadow: 0 4px 24px 0 rgba(64,102,224,0.09);
+}
+.hover-glow:hover {
+  box-shadow: 0 8px 40px 0 rgba(64,102,224,0.15);
+  transform: translateY(-2px) scale(1.01);
+}
 input, textarea {
-  @apply rounded border border-muted-foreground bg-muted text-foreground px-4 py-3 focus:outline-primary transition-colors;
+  @apply rounded-md border border-muted-foreground/30 bg-muted text-foreground px-4 py-2 font-body focus:outline-primary mb-1 transition-all shadow-sm;
 }
-
 ::-webkit-scrollbar { width: 12px; background: var(--muted);}
-::-webkit-scrollbar-thumb { background: var(--primary); border-radius:8px;}
-::-webkit-scrollbar-thumb:hover { background: var(--wheat);}
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius:10px;}
+::-webkit-scrollbar-thumb:hover { background: var(--gold);}

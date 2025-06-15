@@ -20,19 +20,19 @@ const certificates = [
 
 export default function Achievements() {
   return (
-    <div id="achievements">
+    <div id="achievements" className="section animate-fade-in">
       <h3 className="section-title">Achievements</h3>
       <div className="flex flex-col md:flex-row justify-center gap-8">
         {certificates.map(({ img, institute, desc }, i) => (
           <div
             key={i}
-            className="card flex flex-col items-center px-4 py-6 w-full md:w-1/3 hover:bg-primary/10 transition"
+            className="card hover-glow flex flex-col items-center px-4 py-8 w-full md:w-1/3 animate-fade-in"
           >
             <div className="w-full flex justify-center mb-4">
               <img
                 src={img}
                 alt={`${institute} certificate`}
-                className="rounded-lg shadow aspect-[3/2] object-cover w-full max-w-[320px] border border-primary/20"
+                className="rounded-xl shadow aspect-[3/2] object-cover w-full max-w-[320px] border border-primary/20"
                 loading="lazy"
               />
             </div>

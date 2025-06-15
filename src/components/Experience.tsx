@@ -21,15 +21,18 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <div id="experience">
+    <div id="experience" className="section animate-fade-in">
       <h3 className="section-title">Work Experience</h3>
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-6">
         {experiences.map((exp, idx) => (
-          <div key={exp.role + idx} className="card p-6 flex flex-col md:flex-row items-start gap-4">
+          <div
+            key={exp.role + idx}
+            className="card hover-glow p-7 flex flex-col md:flex-row items-start gap-4 animate-fade-in"
+          >
             <div className="flex-1">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
                 <span className="card-title">{exp.role}</span>
-                <span className="text-xs text-primary bg-muted px-2 py-1 rounded font-mono font-body">{exp.period}</span>
+                <span className="text-xs text-primary bg-muted px-2 py-1 rounded-lg font-mono font-body">{exp.period}</span>
               </div>
               <div className="font-medium text-muted-foreground">{exp.org}</div>
               <div className="text-muted-foreground/90 text-sm mt-1">{exp.desc}</div>

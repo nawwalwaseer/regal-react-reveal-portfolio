@@ -13,9 +13,9 @@ const education = {
 
 export default function Education() {
   return (
-    <div id="education">
+    <div id="education" className="section animate-fade-in">
       <h3 className="section-title">Education</h3>
-      <div className="card flex flex-col md:flex-row items-center gap-6 px-6 py-5">
+      <div className="card hover-glow flex flex-col md:flex-row items-center gap-6 px-6 py-7 animate-fade-in">
         <img
           src={education.logo}
           alt={`Logo of ${education.institute}`}
@@ -24,7 +24,7 @@ export default function Education() {
         <div className="flex-1">
           <div className="text-primary font-heading font-bold text-xl mb-1">{education.institute}</div>
           <div className="font-medium text-muted-foreground mb-1">{education.degree}</div>
-          <div className="text-xs text-primary bg-muted px-2 py-1 rounded font-mono inline-block mb-2">{education.period}</div>
+          <div className="text-xs text-primary bg-muted px-2 py-1 rounded-lg font-mono inline-block mb-2">{education.period}</div>
           <div className="text-muted-foreground">
             CGPA: {education.cgpa} &nbsp; | &nbsp; Concentration: {education.concentration}<br />
             {education.scholarship}. FYP: <span className="italic">{education.fyp}</span>
