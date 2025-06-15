@@ -47,22 +47,22 @@ export default function Skills() {
   const counts = useAnimatedLevels(levels);
 
   return (
-    <div id="skills" className="w-full max-w-5xl mx-auto py-16">
-      <h3 className="text-3xl md:text-4xl font-bold text-gold mb-8 text-center font-heading">Skills & Tools</h3>
+    <div id="skills">
+      <h3 className="section-title">Skills & Tools</h3>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-end">
         {data.map((d, i) => (
           <div key={d.label} className="flex flex-col items-center group">
-            <div className="bg-black/80 border border-gold rounded-full p-5 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+            <div className="bg-primary/10 border border-primary rounded-full p-5 mb-4 group-hover:scale-110 transition-transform shadow">
               <d.icon color={d.color} size={38} />
             </div>
-            <div className="font-semibold text-gold group-hover:text-white transition-colors">{d.label}</div>
-            <div className="w-full mt-2 h-2 bg-neutral-800 rounded">
+            <div className="font-semibold text-primary font-body group-hover:text-accent transition-colors">{d.label}</div>
+            <div className="w-full mt-2 h-2 bg-muted rounded">
               <div
-                className="bg-gold h-2 rounded transition-all"
+                className="bg-primary h-2 rounded transition-all"
                 style={{ width: `${counts[i]}%`, transition: "width 1.1s cubic-bezier(.6,.3,0,1)" }}
               ></div>
             </div>
-            <div className="text-xs text-gray-400 mt-1">{counts[i]}%</div>
+            <div className="text-xs text-muted-foreground mt-1">{counts[i]}%</div>
           </div>
         ))}
       </div>

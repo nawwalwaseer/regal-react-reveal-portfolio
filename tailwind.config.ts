@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,7 +11,7 @@ export default {
   theme: {
     fontFamily: {
       body: ['Inter', 'system-ui', 'sans-serif'],
-      heading: ['Inter', 'system-ui', 'sans-serif'],
+      heading: ['Playfair Display', 'serif'],
     },
     container: {
       center: true,

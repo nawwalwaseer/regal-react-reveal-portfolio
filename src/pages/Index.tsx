@@ -14,16 +14,17 @@ const Index = () => {
   return (
     <div className="bg-background min-h-screen font-body text-foreground">
       <Navbar />
-      <main className="w-full">
+      <main className="w-full px-3 md:px-6 pt-2">
         <Hero />
-        <AnimatedSection id="skills"><Skills /></AnimatedSection>
-        <AnimatedSection id="experience"><Experience /></AnimatedSection>
-        <AnimatedSection id="education"><Education /></AnimatedSection>
-        <AnimatedSection id="achievements"><Achievements /></AnimatedSection>
-        <AnimatedSection id="projects"><Projects /></AnimatedSection>
-        <AnimatedSection id="resume"><ResumeDownload /></AnimatedSection>
-        <AnimatedSection id="contact"><Contact /></AnimatedSection>
-        <footer className="py-8 text-center text-foreground/70 text-sm font-medium">
+        {/* All sections are now more carded and soft with updated classes */}
+        <AnimatedSection id="skills" className="section"><Skills /></AnimatedSection>
+        <AnimatedSection id="experience" className="section"><Experience /></AnimatedSection>
+        <AnimatedSection id="education" className="section"><Education /></AnimatedSection>
+        <AnimatedSection id="achievements" className="section"><Achievements /></AnimatedSection>
+        <AnimatedSection id="projects" className="section"><Projects /></AnimatedSection>
+        <AnimatedSection id="resume" className="section"><ResumeDownload /></AnimatedSection>
+        <AnimatedSection id="contact" className="section"><Contact /></AnimatedSection>
+        <footer className="py-8 text-center text-muted-foreground text-sm font-medium">
           &copy; {new Date().getFullYear()} Nawwal Aftab Waseer. All rights reserved.
         </footer>
       </main>
@@ -32,4 +33,3 @@ const Index = () => {
 };
 
 export default Index;
-

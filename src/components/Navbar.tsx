@@ -37,21 +37,22 @@ const scrollToSection = (id: string) => {
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-30 w-full bg-black/70 backdrop-blur border-b border-border">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center py-2 px-4">
-        <div className="text-lg font-semibold text-gold tracking-wide cursor-pointer select-none" onClick={() => scrollToSection("home")}>
+    <header className="sticky top-0 z-30 w-full bg-white/90 dark:bg-black/70 backdrop-blur border-b border-muted-foreground shadow-sm">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center py-4 px-4">
+        <div className="text-2xl font-heading font-bold text-primary tracking-tight cursor-pointer select-none"
+          onClick={() => scrollToSection("home")}>
           Nawwal Aftab Waseer
         </div>
-        <ul className="hidden md:flex gap-5 text-base font-medium">
+        <ul className="hidden md:flex gap-4 text-base font-semibold">
           {navLinks.map(link => (
             <li key={link.section}>
-              <button className="hover:text-gold transition-colors duration-200" onClick={() => scrollToSection(link.section)}>
+              <button className="btn-ghost transition" onClick={() => scrollToSection(link.section)}>
                 {link.label}
               </button>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           {socials.map(s => (
             <a
@@ -59,7 +60,7 @@ export default function Navbar() {
               href={s.url}
               target="_blank"
               rel="noopener"
-              className="hover:text-gold transition-colors"
+              className="text-primary hover:text-accent/90 transition-colors"
               aria-label={s.name}
             >
               <s.icon size={22} />

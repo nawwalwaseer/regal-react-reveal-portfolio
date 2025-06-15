@@ -1,87 +1,90 @@
 
+/* 
+  Add this link to your html for Playfair Display:
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap">
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Main color: #36454f (Charcoal Blue), Text color: #f5deb3 (Wheat) */
-    --background: #20272d;
-    --foreground: #f5deb3;   /* text color */
-    --card: #25313a;
-    --card-foreground: #f5deb3;
-    --primary: #36454f;
-    --primary-foreground: #f5deb3; 
-    --main: #36454f;
-    --main-foreground: #f5deb3;
-    --accent: #f5deb3; /* for replacement of gold on hover/active if required */
-    --gold: #36454f;   /* for backward compatibility */
-    --wheat: #f5deb3;
+    --background: #f5f8fa;
+    --foreground: #232b33;    /* main text */
+    --card: #fff;
+    --card-foreground: #232b33;
+    --primary: #3776ab;       /* blue accent */
+    --primary-foreground: #fff;
+    --accent: #3776ab;
+    --muted: #f8f9fb;         /* slightly offwhite cards */
+    --muted-foreground: #586069;
+    --shadow: 0 8px 24px 0 rgba(55, 118, 171, 0.08);
+    --wheat: #f5deb3;         /* secondary accent for highlights */
   }
   .font-body { font-family: 'Inter', system-ui, sans-serif; }
-  .font-heading { font-family: 'Inter', system-ui, sans-serif; font-weight:700; letter-spacing:-0.01em; }
+  .font-heading { font-family: 'Playfair Display', serif; font-weight:700; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #232c33;
-    --foreground: #f5deb3;
-    --card: #1a1f23;
-    --card-foreground: #f5deb3;
-    --primary: #36454f;
-    --primary-foreground: #f5deb3;
-    --main: #36454f;
-    --main-foreground: #f5deb3;
-    --gold: #36454f;
-    --wheat: #f5deb3;
-  }
-}
+/* Light/Dark support */
 html.dark {
-  --background: #232c33;
-  --foreground: #f5deb3;
-  --card: #1a1f23;
-  --card-foreground: #f5deb3;
-  --primary: #36454f;
-  --primary-foreground: #f5deb3;
-  --main: #36454f;
-  --main-foreground: #f5deb3;
-  --gold: #36454f;
+  --background: #162029;
+  --foreground: #f5f8fa;
+  --card: #1b222c;
+  --card-foreground: #f5f8fa;
+  --primary: #3776ab;
+  --primary-foreground: #fff;
+  --accent: #3776ab;
+  --muted: #232b33;
+  --muted-foreground: #bfc9d1;
   --wheat: #f5deb3;
 }
 html.light {
-  --background: #f5deb3;
-  --foreground: #36454f;
+  --background: #f5f8fa;
+  --foreground: #232b33;
   --card: #fff;
-  --card-foreground: #36454f;
-  --primary: #f5deb3;
-  --primary-foreground: #36454f;
-  --main: #f5deb3;
-  --main-foreground: #36454f;
-  --gold: #36454f;
-  --wheat: #36454f;
+  --card-foreground: #232b33;
+  --primary: #3776ab;
+  --primary-foreground: #fff;
+  --accent: #3776ab;
+  --muted: #f8f9fb;
+  --muted-foreground: #586069;
+  --wheat: #f5deb3;
 }
 
 body {
-  @apply bg-background text-foreground font-body tracking-wide;
+  @apply bg-background text-foreground font-body tracking-wide m-0;
   min-height: 100vh;
+  background: var(--background);
 }
 
-/* Utility classes remapped for new theme */
-.text-gold { color: var(--main) !important; }
-.bg-gold { background: var(--main) !important; }
-.bg-gold\/10 { background: rgba(54,69,79,0.10) !important; }
-.bg-gold\/15 { background: rgba(54,69,79,0.15) !important; }
-.bg-gold\/20 { background: rgba(54,69,79,0.20) !important; }
-.text-gold\/80 { color: rgba(54,69,79,0.8) !important; }
-.border-gold { border-color: var(--main) !important; }
-.border-gold\/20 { border-color: rgba(54,69,79,.2) !important; }
-.border-gold\/30 { border-color: rgba(54,69,79,.3) !important; }
+/* Navbar & sections */
+.section { @apply bg-card shadow-lg rounded-2xl p-8 md:p-12 mb-12 transition-all; box-shadow: var(--shadow); }
+.section-title { @apply font-heading text-4xl text-primary text-center mb-6 font-bold; letter-spacing: -.03em; }
 
-.text-wheat { color: var(--wheat) !important; }
-.bg-wheat { background: var(--wheat) !important; }
-.border-wheat { border-color: var(--wheat) !important; }
+/* Card style for grids and projects */
+.card {
+  @apply bg-card rounded-xl shadow transition-all border border-transparent hover:border-accent hover:shadow-xl;
+  box-shadow: var(--shadow);
+}
+.card-title { @apply font-heading text-xl font-bold text-primary; }
 
-a { @apply transition-colors; }
-::-webkit-scrollbar { width: 12px; background: #232c33;}
-::-webkit-scrollbar-thumb { background: #36454f; border-radius:8px;}
+/* Buttons */
+.btn, .button {
+  @apply inline-block px-6 py-2 rounded-lg font-semibold bg-primary text-primary-foreground shadow hover:bg-primary/80 transition tracking-wide;
+}
+.btn-outline {
+  @apply border border-primary text-primary bg-transparent hover:bg-primary hover:text-white;
+}
+.btn-ghost {
+  @apply bg-transparent text-primary hover:bg-primary/10;
+}
+
+/* Inputs and forms */
+input, textarea {
+  @apply rounded border border-muted-foreground bg-muted text-foreground px-4 py-3 focus:outline-primary transition-colors;
+}
+
+::-webkit-scrollbar { width: 12px; background: var(--muted);}
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius:8px;}
 ::-webkit-scrollbar-thumb:hover { background: var(--wheat);}
