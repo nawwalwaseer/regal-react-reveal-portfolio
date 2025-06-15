@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const education = {
@@ -13,19 +14,21 @@ const education = {
 
 export default function Education() {
   return (
-    <div id="education" className="section animate-fade-in">
-      <h3 className="section-title">Education</h3>
-      <div className="card hover-glow flex flex-col md:flex-row items-center gap-6 px-6 py-7 animate-fade-in">
+    <div id="education" className="w-full max-w-4xl mx-auto py-10">
+      <h3 className="text-3xl md:text-4xl font-bold text-gold mb-8 text-center font-heading">
+        Education
+      </h3>
+      <div className="flex flex-col md:flex-row items-center gap-6 rounded-lg bg-black/70 shadow-lg px-6 py-5 border-l-4 border-gold">
         <img
           src={education.logo}
           alt={`Logo of ${education.institute}`}
-          className="w-16 h-16 rounded-full border-2 border-primary bg-white object-contain"
+          className="w-20 h-20 rounded-full border-2 border-gold/30 bg-white object-contain"
         />
         <div className="flex-1">
-          <div className="text-primary font-heading font-bold text-xl mb-1">{education.institute}</div>
-          <div className="font-medium text-muted-foreground mb-1">{education.degree}</div>
-          <div className="text-xs text-primary bg-muted px-2 py-1 rounded-lg font-mono inline-block mb-2">{education.period}</div>
-          <div className="text-muted-foreground">
+          <div className="text-gold font-semibold text-xl mb-1">{education.institute}</div>
+          <div className="font-medium text-gray-300 mb-1">{education.degree}</div>
+          <div className="text-xs text-gold bg-neutral-900 px-2 py-1 rounded font-mono inline-block mb-2">{education.period}</div>
+          <div className="text-gray-200 text-sm">
             CGPA: {education.cgpa} &nbsp; | &nbsp; Concentration: {education.concentration}<br />
             {education.scholarship}. FYP: <span className="italic">{education.fyp}</span>
           </div>
@@ -34,3 +37,4 @@ export default function Education() {
     </div>
   );
 }
+

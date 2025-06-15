@@ -1,3 +1,4 @@
+
 const experiences = [
   {
     role: "MERN Stack Developer",
@@ -21,21 +22,21 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <div id="experience" className="section animate-fade-in">
-      <h3 className="section-title">Work Experience</h3>
-      <div className="flex flex-col gap-6">
+    <div id="experience" className="w-full max-w-4xl mx-auto py-16">
+      <h3 className="text-3xl md:text-4xl font-bold text-gold mb-8 text-center font-heading">
+        Work Experience
+      </h3>
+      <div className="relative border-l-2 border-gold pl-8 space-y-10">
         {experiences.map((exp, idx) => (
-          <div
-            key={exp.role + idx}
-            className="card hover-glow p-7 flex flex-col md:flex-row items-start gap-4 animate-fade-in"
-          >
-            <div className="flex-1">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
-                <span className="card-title">{exp.role}</span>
-                <span className="text-xs text-primary bg-muted px-2 py-1 rounded-lg font-mono font-body">{exp.period}</span>
+          <div key={exp.role + idx} className="relative group">
+            <div className="absolute -left-6 top-1 w-5 h-5 bg-gold rounded-full border-4 border-neutral-900"></div>
+            <div className="bg-black/70 rounded-lg shadow-lg px-6 py-4 mb-2 hover:shadow-xl transition-shadow cursor-pointer">
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-semibold text-lg">{exp.role}</span>
+                <span className="text-xs text-gold bg-neutral-900 px-2 py-1 rounded font-mono">{exp.period}</span>
               </div>
-              <div className="font-medium text-muted-foreground">{exp.org}</div>
-              <div className="text-muted-foreground/90 text-sm mt-1">{exp.desc}</div>
+              <div className="font-medium text-gray-300">{exp.org}</div>
+              <div className="text-gray-400 text-sm mt-1">{exp.desc}</div>
             </div>
           </div>
         ))}
@@ -43,3 +44,4 @@ export default function Experience() {
     </div>
   );
 }
+

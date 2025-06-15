@@ -8,23 +8,24 @@ import Achievements from "@/components/Achievements";
 import Projects from "@/components/Projects";
 import ResumeDownload from "@/components/ResumeDownload";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="bg-background min-h-screen font-body text-foreground">
+    <div className="bg-black min-h-screen font-body text-white">
       <Navbar />
-      <main className="w-full px-3 md:px-6 pt-0 lg:pt-2">
+      <main className="w-full">
         <Hero />
-        <AnimatedSection id="skills" className="section"><Skills /></AnimatedSection>
-        <AnimatedSection id="experience" className="section"><Experience /></AnimatedSection>
-        <AnimatedSection id="education" className="section"><Education /></AnimatedSection>
-        <AnimatedSection id="achievements" className="section"><Achievements /></AnimatedSection>
-        <AnimatedSection id="projects" className="section"><Projects /></AnimatedSection>
-        <AnimatedSection id="resume" className="section"><ResumeDownload /></AnimatedSection>
-        <AnimatedSection id="contact" className="section"><Contact /></AnimatedSection>
+        <AnimatedSection id="skills"><Skills /></AnimatedSection>
+        <AnimatedSection id="experience"><Experience /></AnimatedSection>
+        <AnimatedSection id="education"><Education /></AnimatedSection>
+        <AnimatedSection id="achievements"><Achievements /></AnimatedSection>
+        <AnimatedSection id="projects"><Projects /></AnimatedSection>
+        <AnimatedSection id="resume"><ResumeDownload /></AnimatedSection>
+        <AnimatedSection id="contact"><Contact /></AnimatedSection>
+        <footer className="py-8 text-center text-gray-500 text-sm font-medium">
+          &copy; {new Date().getFullYear()} Nawwal Aftab Waseer. All rights reserved.
+        </footer>
       </main>
-      <Footer />
     </div>
   );
 };
