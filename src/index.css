@@ -1,54 +1,87 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 10%;
-    --primary: 45 100% 61%;
-    --primary-foreground: 0 0% 15%;
-    --gold: #ffd700;
+    /* Main color: #36454f (Charcoal Blue), Text color: #f5deb3 (Wheat) */
+    --background: #20272d;
+    --foreground: #f5deb3;   /* text color */
+    --card: #25313a;
+    --card-foreground: #f5deb3;
+    --primary: #36454f;
+    --primary-foreground: #f5deb3; 
+    --main: #36454f;
+    --main-foreground: #f5deb3;
+    --accent: #f5deb3; /* for replacement of gold on hover/active if required */
+    --gold: #36454f;   /* for backward compatibility */
+    --wheat: #f5deb3;
   }
   .font-body { font-family: 'Inter', system-ui, sans-serif; }
   .font-heading { font-family: 'Inter', system-ui, sans-serif; font-weight:700; letter-spacing:-0.01em; }
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 97%;
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 97%;
+    --background: #232c33;
+    --foreground: #f5deb3;
+    --card: #1a1f23;
+    --card-foreground: #f5deb3;
+    --primary: #36454f;
+    --primary-foreground: #f5deb3;
+    --main: #36454f;
+    --main-foreground: #f5deb3;
+    --gold: #36454f;
+    --wheat: #f5deb3;
   }
 }
 html.dark {
-  --background: 0 0% 6%;
-  --foreground: 0 0% 97%;
-  --card: 0 0% 9%;
-  --card-foreground: 0 0% 97%;
+  --background: #232c33;
+  --foreground: #f5deb3;
+  --card: #1a1f23;
+  --card-foreground: #f5deb3;
+  --primary: #36454f;
+  --primary-foreground: #f5deb3;
+  --main: #36454f;
+  --main-foreground: #f5deb3;
+  --gold: #36454f;
+  --wheat: #f5deb3;
 }
 html.light {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 10%;
-  --card: 0 0% 98%;
-  --card-foreground: 0 0% 10%;
+  --background: #f5deb3;
+  --foreground: #36454f;
+  --card: #fff;
+  --card-foreground: #36454f;
+  --primary: #f5deb3;
+  --primary-foreground: #36454f;
+  --main: #f5deb3;
+  --main-foreground: #36454f;
+  --gold: #36454f;
+  --wheat: #36454f;
 }
+
 body {
   @apply bg-background text-foreground font-body tracking-wide;
   min-height: 100vh;
 }
-.text-gold { color: var(--gold) !important; }
-.bg-gold { background: var(--gold) !important; }
-.bg-gold\/10 { background: rgba(255, 215, 0, 0.10) !important; }
-.bg-gold\/15 { background: rgba(255, 215, 0, 0.15) !important; }
-.bg-gold\/20 { background: rgba(255, 215, 0, 0.20) !important; }
-.text-gold\/80 { color: rgba(255, 215, 0, 0.8) !important; }
-.border-gold { border-color: var(--gold) !important; }
-.border-gold\/20 { border-color: rgba(255,215,0,.2) !important; }
-.border-gold\/30 { border-color: rgba(255,215,0,.3) !important; }
+
+/* Utility classes remapped for new theme */
+.text-gold { color: var(--main) !important; }
+.bg-gold { background: var(--main) !important; }
+.bg-gold\/10 { background: rgba(54,69,79,0.10) !important; }
+.bg-gold\/15 { background: rgba(54,69,79,0.15) !important; }
+.bg-gold\/20 { background: rgba(54,69,79,0.20) !important; }
+.text-gold\/80 { color: rgba(54,69,79,0.8) !important; }
+.border-gold { border-color: var(--main) !important; }
+.border-gold\/20 { border-color: rgba(54,69,79,.2) !important; }
+.border-gold\/30 { border-color: rgba(54,69,79,.3) !important; }
+
+.text-wheat { color: var(--wheat) !important; }
+.bg-wheat { background: var(--wheat) !important; }
+.border-wheat { border-color: var(--wheat) !important; }
+
 a { @apply transition-colors; }
-::-webkit-scrollbar { width: 12px; background: #13131f;}
-::-webkit-scrollbar-thumb { background: #222228; border-radius:8px;}
-::-webkit-scrollbar-thumb:hover { background: var(--gold);}
+::-webkit-scrollbar { width: 12px; background: #232c33;}
+::-webkit-scrollbar-thumb { background: #36454f; border-radius:8px;}
+::-webkit-scrollbar-thumb:hover { background: var(--wheat);}

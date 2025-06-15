@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -11,7 +12,7 @@ import Contact from "@/components/Contact";
 
 const Index = () => {
   return (
-    <div className="bg-black min-h-screen font-body text-white">
+    <div className="bg-background min-h-screen font-body text-foreground">
       <Navbar />
       <main className="w-full">
         <Hero />
@@ -22,7 +23,7 @@ const Index = () => {
         <AnimatedSection id="projects"><Projects /></AnimatedSection>
         <AnimatedSection id="resume"><ResumeDownload /></AnimatedSection>
         <AnimatedSection id="contact"><Contact /></AnimatedSection>
-        <footer className="py-8 text-center text-gray-500 text-sm font-medium">
+        <footer className="py-8 text-center text-foreground/70 text-sm font-medium">
           &copy; {new Date().getFullYear()} Nawwal Aftab Waseer. All rights reserved.
         </footer>
       </main>
@@ -31,3 +32,4 @@ const Index = () => {
 };
 
 export default Index;
+
