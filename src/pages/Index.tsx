@@ -1,12 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import AnimatedSection from "@/components/AnimatedSection";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import Achievements from "@/components/Achievements";
+import Projects from "@/components/Projects";
+import ResumeDownload from "@/components/ResumeDownload";
+import Contact from "@/components/Contact";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="bg-black min-h-screen font-body text-white">
+      <Navbar />
+      <main className="w-full">
+        <Hero />
+        <AnimatedSection id="skills"><Skills /></AnimatedSection>
+        <AnimatedSection id="experience"><Experience /></AnimatedSection>
+        <AnimatedSection id="achievements"><Achievements /></AnimatedSection>
+        <AnimatedSection id="projects"><Projects /></AnimatedSection>
+        <AnimatedSection id="resume"><ResumeDownload /></AnimatedSection>
+        <AnimatedSection id="contact"><Contact /></AnimatedSection>
+        <footer className="py-8 text-center text-gray-500 text-sm font-medium">
+          &copy; {new Date().getFullYear()} Nawwal Aftab Waseer. All rights reserved.
+        </footer>
+      </main>
     </div>
   );
 };
